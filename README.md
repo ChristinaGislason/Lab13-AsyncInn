@@ -19,3 +19,7 @@ Following the design, Create a controller for each of the pages listed above.
 ## Solution
 
 ![Lab13-AsyncInn-Screencapture](https://github.com/ChristinaGislason/Lab13-AsyncInn/blob/master/Lab13-AsyncInn-Screencapture.JPG)
+
+Async Inn Schema
+
+![AsyncInnSchema](https://github.com/codefellows/seattle-dotnet-401d5/blob/master/Class13-EntityFramework/Resources/SchemaAsyncInn.png)
