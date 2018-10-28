@@ -1,0 +1,19 @@
+﻿body {
+    background-color: lightgray;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+    color: darkslateblue;
+}
+
+h2 {
+    font-size: 20px;
+    color: green;
+}
+
+h3 {
+    font-size: 16px;
+    color: green;
+}
