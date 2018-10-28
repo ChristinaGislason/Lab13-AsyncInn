@@ -12,5 +12,9 @@ namespace Lab13_AsyncInn.Models
         public decimal RoomID { get; set; }
         public decimal Rate { get; set; }
         public bool PetFriendly { get; set; }
+
+        public Hotel Hotel { get; set; }
+        public Room Room { get; set; }
+
     }
 }
