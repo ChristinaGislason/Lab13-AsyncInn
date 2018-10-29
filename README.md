@@ -14,7 +14,9 @@ Amenities page that will allow the admin to add to their list of existing amenit
 A page where they can link the Amenities to the rooms that currently exist
 A page where they can add existing rooms to hotels
 Following the design, Create a controller for each of the pages listed above.
-* Add some html and styling
+* Add some html and styling.
+* Add data annotations to existing models to validate basic user input fields as appropriate.
+* Seed your Hotel, Room type, and Amenities databases 
 
 ## Solution
 
