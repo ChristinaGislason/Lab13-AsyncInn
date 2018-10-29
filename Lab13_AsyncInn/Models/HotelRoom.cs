@@ -15,7 +15,7 @@ namespace Lab13_AsyncInn.Models
 
         public decimal RoomID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please provide a valid rate per night")]
         [Display(Name = "Rate Per Night")]
         public decimal Rate { get; set; }
 

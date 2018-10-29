@@ -11,6 +11,7 @@ namespace Lab13_AsyncInn.Models
         public int ID { get; set; }
 
         [Required]
+        [StringLength(30, ErrorMessage ="30 characters or less required")]
         [Display(Name = "Hotel Name")]
         public string Name { get; set; }
 
