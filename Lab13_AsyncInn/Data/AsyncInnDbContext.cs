@@ -96,8 +96,36 @@ namespace Lab13_AsyncInn.Data
                     Name = "Presidential Suite",
                     Layout = Layout.TwoBedroom
                 }
-               
-                )
+                );
+
+
+            modelBuilder.Entity<Amenities>().HasData(
+                new Amenities
+                {
+                    ID = 1,
+                    Name = "coffeemaker",
+                },
+                new Amenities
+                {
+                    ID = 2,
+                    Name = "wifi",
+                },
+                new Amenities
+                {
+                    ID = 3,
+                    Name = "hot tub",
+                },
+                new Amenities
+                {
+                    ID = 4,
+                    Name = "television",
+                },
+                new Amenities
+                {
+                    ID = 5,
+                    Name = "minibar",
+                }
+                );
         }
 
         public DbSet<Hotel> Hotels { get; set; }
