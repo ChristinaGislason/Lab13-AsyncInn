@@ -20,7 +20,7 @@ namespace Lab13_AsyncInn.Models
 
         [Required]
         [Display(Name = "Phone number")]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
         public ICollection<HotelRoom> HotelRooms { get; set; }            
     }

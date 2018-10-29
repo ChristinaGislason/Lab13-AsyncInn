@@ -4,14 +4,16 @@ using Lab13_AsyncInn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Lab13_AsyncInn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181029045901_seededData")]
+    partial class seededData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,19 +55,18 @@ namespace Lab13_AsyncInn.Migrations
                         .IsRequired()
                         .HasMaxLength(30);
 
-                    b.Property<string>("Phone")
-                        .IsRequired();
+                    b.Property<int>("Phone");
 
                     b.HasKey("ID");
 
                     b.ToTable("Hotels");
 
                     b.HasData(
-                        new { ID = 1, Address = "111 Alki Way", Name = "Async Seattle", Phone = "998-853-5544" },
-                        new { ID = 2, Address = "123 Main St.", Name = "Async Bellevue", Phone = "887-700-4030" },
-                        new { ID = 3, Address = "2244 Talbot Rd.", Name = "Async Portland", Phone = "858-535-5221" },
-                        new { ID = 4, Address = "3003 Ocean Dr.", Name = "Async Vancouver", Phone = "550-053-4477" },
-                        new { ID = 5, Address = "688 Blanshard St.", Name = "Async Victoria", Phone = "423-111-5356" }
+                        new { ID = 1, Address = "111 Alki Way", Name = "Async Seattle", Phone = 9988 },
+                        new { ID = 2, Address = "123 Main St.", Name = "Async Bellevue", Phone = 8877 },
+                        new { ID = 3, Address = "2244 Talbot Rd.", Name = "Async Portland", Phone = 8585 },
+                        new { ID = 4, Address = "3003 Ocean Dr.", Name = "Async Vancouver", Phone = 5500 },
+                        new { ID = 5, Address = "688 Blanshard St.", Name = "Async Victoria", Phone = 4231 }
                     );
                 });
 
