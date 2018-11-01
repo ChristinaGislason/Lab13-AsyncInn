@@ -12,6 +12,8 @@ namespace Lab13_AsyncInn.Controllers
 {
     public class RoomsController : Controller
     {
+
+        // Dependency injection
         private readonly AsyncInnDbContext _context;
 
         public RoomsController(AsyncInnDbContext context)

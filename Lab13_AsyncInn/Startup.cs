@@ -1,4 +1,6 @@
 ﻿using Lab13_AsyncInn.Data;
+using Lab13_AsyncInn.Models.Interfaces;
+using Lab13_AsyncInn.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,11 @@ namespace Lab13_AsyncInn
                 options.UseSqlServer
                 (Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            // Configure interfaces and services
+            services.AddTransient<IHotel, HotelService>();
+            services.AddTransient<IRoom, RoomService>();
+            services.AddTransient<IAmenities, AmenitiesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

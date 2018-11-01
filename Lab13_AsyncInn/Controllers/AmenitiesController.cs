@@ -12,6 +12,8 @@ namespace Lab13_AsyncInn.Controllers
 {
     public class AmenitiesController : Controller
     {
+
+        // Dependency injection
         private readonly AsyncInnDbContext _context;
 
         public AmenitiesController(AsyncInnDbContext context)
