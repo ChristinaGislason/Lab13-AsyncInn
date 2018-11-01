@@ -19,6 +19,6 @@ namespace Lab13_AsyncInn.Models.Interfaces
         // Read
         Task<List<Amenities>> GetAmenities();
 
-        Task<Amenities> GetAmenities(int? id);
+        Task<Amenities> GetAmenity(int? id);
     }
 }

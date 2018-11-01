@@ -17,7 +17,7 @@ namespace Lab13_AsyncInn.Models.Services
             _context = context;
         }
 
-        public async Task CreateAmenities(Amenities amenity)
+        public async Task CreateAmenity(Amenities amenity)
         {
             _context.Amenities.Add(amenity);
             await _context.SaveChangesAsync();
@@ -41,10 +41,11 @@ namespace Lab13_AsyncInn.Models.Services
             return await _context.Amenities.ToListAsync();
         }
 
-        public async Task UpdateAmenities(Amenities amenity)
+        public async Task UpdateAmenity(Amenities amenity)
         {
             _context.Amenities.Update(amenity);
             await _context.SaveChangesAsync();
         }
+
     }
 }
