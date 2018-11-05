@@ -20,6 +20,6 @@ namespace Lab13_AsyncInn.Models.Interfaces
         Task<List<Hotel>> GetHotels();
 
         Task<Hotel> GetHotel(int? id);
-        
+        Task<bool> HotelsExists(int id);
     }
 }
