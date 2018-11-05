@@ -106,7 +106,7 @@ namespace Lab13_AsyncInn.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (await _amenities.AmenitiesExists(amenities.ID))
+                    if (!AmenitiesExists(amenities.ID))
                     {
                         return NotFound();
                     }
@@ -150,6 +150,9 @@ namespace Lab13_AsyncInn.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
+        private bool AmenitiesExists(int id)
+        {
+            return _amenities.GetAmenity(id) != null;
+        }
     }
 }

@@ -46,9 +46,6 @@ namespace Lab13_AsyncInn.Models.Services
             _context.Amenities.Update(amenity);
             await _context.SaveChangesAsync();
         }
-        public async Task<bool> AmenitiesExists(int id)
-        {
-            return  _context.Amenities.Any(e => e.ID == id);
-        }
+      
     }
 }
