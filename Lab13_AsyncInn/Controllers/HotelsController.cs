@@ -143,7 +143,7 @@ namespace Lab13_AsyncInn.Controllers
         
         private bool HotelExists(int id)
         {
-            return _hotel.Hotel.Any(e => e.HotelID == id);
+            return _hotel.GetHotel(id) != null;
         }
     }
 }

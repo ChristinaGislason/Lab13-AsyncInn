@@ -74,7 +74,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
-            var room = await _room.GetRoom(id);
+            var room = await _room.GetRooms(id);
             if (room == null)
             {
                 return NotFound();
@@ -102,7 +102,7 @@ namespace Lab13_AsyncInn.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoomExists(room.ID))
+                    if (!RoomsExists(room.ID))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
-            var room = await _room.GetRoom(id);
+            var room = await _room.GetRooms(id);
             if (room == null)
             {
                 return NotFound();
@@ -142,9 +142,9 @@ namespace Lab13_AsyncInn.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RoomExists(int id)
+        private bool RoomsExists(int id)
         {
-            return _room.Rooms.Any(e => e.ID == id);
+            return _room.GetRoom(id) != null;
         }
     }
 }

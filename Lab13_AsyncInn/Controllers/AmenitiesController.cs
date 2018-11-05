@@ -152,7 +152,7 @@ namespace Lab13_AsyncInn.Controllers
 
         private bool AmenitiesExists(int id)
         {
-            return _amenities.Amenity.Any(e => e.HotelID == id);
+            return _amenities.GetAmenity(id) != null;
         }
     }
 }

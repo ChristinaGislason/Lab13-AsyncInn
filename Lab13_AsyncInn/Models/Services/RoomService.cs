@@ -26,12 +26,12 @@ namespace Lab13_AsyncInn.Models.Services
 
         public async Task DeleteRoom(int id)
         {
-            Room room = await GetRoom(id);
+            Room room = await GetRooms(id);
             _context.Rooms.Remove(room);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Room> GetRoom(int? id)
+        public async Task<Room> GetRooms(int? id)
         {
             return await _context.Rooms.FirstOrDefaultAsync(x => x.ID == id);
         }
