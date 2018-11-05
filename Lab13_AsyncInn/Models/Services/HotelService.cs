@@ -18,6 +18,7 @@ namespace Lab13_AsyncInn.Models.Services
             _context = context;
         }
 
+        // Create hotel and add it to the database then save changes
         public async Task CreateHotel(Hotel hotel)
         {
             _context.Hotels.Add(hotel);

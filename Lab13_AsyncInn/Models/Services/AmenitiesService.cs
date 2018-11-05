@@ -3,6 +3,7 @@ using Lab13_AsyncInn.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Lab13_AsyncInn.Models.Services
@@ -20,8 +21,7 @@ namespace Lab13_AsyncInn.Models.Services
         public async Task CreateAmenity(Amenities amenity)
         {
             _context.Amenities.Add(amenity);
-            await _context.SaveChangesAsync();
-    
+            await _context.SaveChangesAsync();   
         }
 
         public async Task DeleteAmenity(int id)
@@ -46,6 +46,9 @@ namespace Lab13_AsyncInn.Models.Services
             _context.Amenities.Update(amenity);
             await _context.SaveChangesAsync();
         }
-
+        public async Task<bool> AmenitiesExists(int id)
+        {
+            return  _context.Amenities.Any(e => e.ID == id);
+        }
     }
 }
