@@ -74,14 +74,14 @@ namespace Lab13_AsyncInn.Controllers
         }
 
         // GET: HotelRooms/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? hotelID, int roomID)
         {
-            if (id == null)
+            if (hotelID == null)
             {
                 return NotFound();
             }
 
-            var hotelRoom = await _context.HotelRooms.FindAsync(id);
+            var hotelRoom = await _context.HotelRooms.FindAsync(hotelID, roomID);
             if (hotelRoom == null)
             {
                 return NotFound();

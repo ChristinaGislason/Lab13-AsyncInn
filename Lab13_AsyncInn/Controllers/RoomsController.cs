@@ -17,9 +17,9 @@ namespace Lab13_AsyncInn.Controllers
         // Dependency injection
         private IRoom _room;
 
-        public RoomsController(IRoom context)
+        public RoomsController(IRoom rooms)
         {
-            _room = context;
+            _room = rooms;
         }
 
         // GET: Rooms
@@ -74,7 +74,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
-            var room = await _room.GetRooms(id);
+            Room room = await _room.GetRooms(id);
             if (room == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
-            var room = await _room.GetRooms(id);
+            Room room = await _room.GetRooms(id);
             if (room == null)
             {
                 return NotFound();

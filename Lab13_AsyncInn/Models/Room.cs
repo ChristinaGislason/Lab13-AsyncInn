@@ -19,6 +19,7 @@ namespace Lab13_AsyncInn.Models
         public Layout Layout { get; set; }
 
         public ICollection<HotelRoom> HotelRooms { get; set; }
+
         public ICollection<RoomAmenities> RoomAmenities { get; set; }
     }
 
