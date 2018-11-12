@@ -16,9 +16,9 @@ namespace Lab13_AsyncInn.Controllers
         // Dependency injection
         private IHotel _hotel;
 
-        public HotelsController(IHotel context)
+        public HotelsController(IHotel hotel)
         {
-            _hotel = context;
+            _hotel = hotel;
         }
 
         // GET: Hotels
@@ -35,7 +35,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
-            var hotel = await _hotel.GetHotel(id);
+            Hotel hotel = await _hotel.GetHotel(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
-            var hotel = await _hotel.GetHotel(id);
+            Hotel hotel = await _hotel.GetHotel(id);
             if (hotel == null)
             {
                 return NotFound();

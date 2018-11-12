@@ -34,6 +34,7 @@ namespace Lab13_AsyncInn.Controllers
             {
                 return NotFound();
             }
+
             var amenities = await _amenities.GetAmenity(id);
             //var amenities = await _context.Amenities
              //   .FirstOrDefaultAsync(m => m.ID == id);

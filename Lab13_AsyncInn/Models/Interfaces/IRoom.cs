@@ -20,7 +20,6 @@ namespace Lab13_AsyncInn.Models.Interfaces
         Task<List<Room>> GetRooms();
 
         Task<Room> GetRooms(int? id);
-        Task<bool> RoomsExists(int id);
 
     }
 }

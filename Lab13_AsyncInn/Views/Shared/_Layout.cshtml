@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Kumar+One+Outline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>ASYNC INN</h1>
+
+        <div class="main-container">
+            <nav>
+                <a href="/Home/">Home</a>
+                <a href="/Hotels/">Hotels</a>
+                <a href="/HotelRooms/">Hotel Rooms</a>
+                <a href="/Rooms/">Rooms</a>
+                <a href="/RoomAmenities/">Room Amenities</a>
+                <a href="/Amenities/">Amenities</a>
+            </nav>
+        </div>
+
+    </header>
+    
+    <div class="models">
+        @RenderBody()
+    </div>
+</body>
+</html>
+
