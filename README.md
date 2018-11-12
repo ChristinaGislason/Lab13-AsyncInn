@@ -22,8 +22,28 @@ Following the design, Create a controller for each of the pages listed above.
 
 Deployed website URL: https://lab13asyncinn.azurewebsites.net 
 
-![Lab13-AsyncInn-Screencapture](https://github.com/ChristinaGislason/Lab13-AsyncInn/blob/master/Lab13-AsyncInn-Screencapture.JPG)
+## Sample Views of Web App
 
-Async Inn Schema
+#### Landing Page
 
-![AsyncInnSchema](https://github.com/codefellows/seattle-dotnet-401d5/blob/master/Class13-EntityFramework/Resources/SchemaAsyncInn.png)
+![AsyncInn-LandingPage](./Assets/LandingPage.JPG)
+
+#### Hotels Page
+
+![AsyncInn-HotelsPage](./Assets/HotelsPage.JPG)
+
+#### HotelRooms Page
+
+![AsyncInn-HotelRoomsPage](./Assets/HotelRoomsPage.JPG)
+
+#### Rooms Page
+
+![AsyncInn-RoomsPage](./Assets/RoomsPage.JPG)
+
+#### Amenities Page
+
+![AsyncInn-AmenitiesPage](./Assets/AmenitiesPage.JPG)
+
+#### Async Inn Schema
+
+![AsyncInnSchema](./Assets/AsyncInnSchema.JPG)
