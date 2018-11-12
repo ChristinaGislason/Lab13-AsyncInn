@@ -48,7 +48,9 @@ namespace Lab13_AsyncInn.Controllers
         // GET: HotelRooms/Create
         public IActionResult Create()
         {
-            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID");
+            ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "Name");
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name");
+
             return View();
         }
 
@@ -66,6 +68,8 @@ namespace Lab13_AsyncInn.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "ID", hotelRoom.RoomID);
+
             return View(hotelRoom);
         }
 
@@ -83,6 +87,8 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
             ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID", hotelRoom.HotelID);
+            ViewData["HotelID"] = new SelectList(_context.Rooms, "ID", "Name", hotelRoom.RoomID);
+
             return View(hotelRoom);
         }
 
@@ -119,7 +125,9 @@ namespace Lab13_AsyncInn.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "ID", hotelRoom.RoomID);
             return View(hotelRoom);
+            
         }
 
         // GET: HotelRooms/Delete/5

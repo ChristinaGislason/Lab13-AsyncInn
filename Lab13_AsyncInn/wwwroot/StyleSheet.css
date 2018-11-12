@@ -1,19 +1,33 @@
 ﻿body {
-    background-color: lightgray;
+    background-image: url("HotelLobby.jpg");
 }
 
 h1 {
+    font-family: 'Kumar One Outline', cursive;
     text-align: center;
-    font-size: 30px;
-    color: darkslateblue;
+    font-size: 100px;
+    color: antiquewhite;
+    padding: 200px;
+}
+
+.main-container {
+    border-style: solid;
+    border-width: 6px;
+    border-color: fuchsia;
+    border-radius: 1px;
+    height: 800px;
+    margin: -200px 550px;
+    background-color:ActiveBorder antiquewhite;
 }
 
 h2 {
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
-    color: green;
+    color: lightgray;
 }
 
 h3 {
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
-    color: green;
+    color: grey;
 }

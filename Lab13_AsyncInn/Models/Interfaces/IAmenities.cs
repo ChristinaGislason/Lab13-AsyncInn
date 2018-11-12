@@ -20,6 +20,5 @@ namespace Lab13_AsyncInn.Models.Interfaces
         Task<List<Amenities>> GetAmenities();
 
         Task<Amenities> GetAmenity(int? id);
-        Task<bool> AmenitiesExists(int id);
     }
 }
