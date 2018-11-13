@@ -13,7 +13,7 @@ namespace Lab13_AsyncInn.Models
         [Display(Name = "Room Number")]
         public int RoomNumber { get; set; }
 
-        public decimal RoomID { get; set; }
+        public int RoomID { get; set; }
 
         [Required(ErrorMessage = "Please provide a valid rate per night")]
         [Display(Name = "Rate Per Night")]
