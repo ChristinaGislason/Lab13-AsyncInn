@@ -7,22 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lab13_AsyncInn.Data;
 using Lab13_AsyncInn.Models;
+using Lab13_AsyncInn.Models.Interfaces;
 
 namespace Lab13_AsyncInn.Controllers
 {
     public class HotelRoomsController : Controller
     {
         private readonly AsyncInnDbContext _context;
+        private readonly IHotel _hotel;
+        private readonly IRoom _room;
 
-        public HotelRoomsController(AsyncInnDbContext context)
+        //Hotel Rooms constructor-- brings in code into a class 
+        public HotelRoomsController(AsyncInnDbContext context, IHotel hotel, IRoom room)
         {
             _context = context;
+            _hotel = hotel;
+            _room = room;         
         }
 
         // GET: HotelRooms
         public async Task<IActionResult> Index()
         {
-            var asyncInnDbContext = _context.HotelRooms.Include(h => h.Hotel);
+            var asyncInnDbContext = _context.HotelRooms.Include(h => h.Hotel).Include(h => h.Room);
             return View(await asyncInnDbContext.ToListAsync());
         }
 
@@ -87,7 +93,7 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
             ViewData["HotelID"] = new SelectList(_context.Hotels, "ID", "ID", hotelRoom.HotelID);
-            ViewData["HotelID"] = new SelectList(_context.Rooms, "ID", "Name", hotelRoom.RoomID);
+            ViewData["RoomID"] = new SelectList(_context.Rooms, "ID", "Name", hotelRoom.RoomID);
 
             return View(hotelRoom);
         }
@@ -139,8 +145,8 @@ namespace Lab13_AsyncInn.Controllers
             }
 
             var hotelRoom = await _context.HotelRooms
-                .Include(h => h.Hotel)
-                .FirstOrDefaultAsync(m => m.HotelID == id);
+                .Include(h => h.Hotel).Include(h => h.Room)
+                .FirstOrDefaultAsync(m => m.RoomNumber == id);
             if (hotelRoom == null)
             {
                 return NotFound();
