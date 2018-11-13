@@ -117,5 +117,49 @@ namespace XUnitTestProject1
             hotelroom.RoomNumber = 22;
             Assert.Equal(22, hotelroom.RoomNumber);
         }
+
+        /// <summary>
+        /// Test to get hotel room rate
+        /// </summary>
+        [Fact]
+        public void GetHotelRoomRate()
+        {
+            HotelRoom hotelroom = new HotelRoom();
+            hotelroom.Rate = 375;
+            Assert.Equal(375, hotelroom.Rate);
+        }
+
+        /// <summary>
+        /// Test to set hotel room rate
+        /// </summary>
+        [Fact]
+        public void SetHotelRoomRate()
+        {
+            HotelRoom hotelroom = new HotelRoom();
+            hotelroom.Rate = 220;
+            Assert.Equal(220, hotelroom.Rate);
+        }
+
+        /// <summary>
+        /// Get hotel room status if petfriendly 
+        /// </summary>
+        [Fact]
+        public void GetRoomPetFriendlyStatus()
+        {
+            HotelRoom hotelroom = new HotelRoom();
+            hotelroom.PetFriendly = true;
+            Assert.True(hotelroom.PetFriendly);
+        }
+
+        /// <summary>
+        /// Set hotel room status if petfriendly 
+        /// </summary>
+        [Fact]
+        public void SetRoomPetFriendlyStatus()
+        {
+            HotelRoom hotelroom = new HotelRoom();
+            hotelroom.PetFriendly = false;
+            Assert.False(hotelroom.PetFriendly);
+        }
     }
 }
