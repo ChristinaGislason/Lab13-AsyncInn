@@ -28,7 +28,26 @@ namespace XUnitTestProject1
             Assert.Equal("Async Inn Austin", hotel.Name);
         }
 
-        
+        /// <summary>
+        /// Test to get hotel address
+        /// </summary>
+        [Fact]
+        public void GetHotelAddress()
+        {
+            Hotel hotel = new Hotel();
+            hotel.Address = "123 Fairway Rd";
+            Assert.Equal("123 Fairway Rd", hotel.Address);
+        }
 
+        /// <summary>
+        /// Test to set hotel address
+        /// </summary>
+        [Fact]
+        public void SetHotelAddress()
+        {
+            Hotel hotel = new Hotel();
+            hotel.Address = "300 Derby Dr";
+            Assert.Equal("300 Derby Dr", hotel.Address);
+        }
     }
 }
