@@ -95,5 +95,27 @@ namespace XUnitTestProject1
             amenity.Name = "Jacuzzi";
             Assert.Equal("Jacuzzi", amenity.Name);
         }
+
+        /// <summary>
+        /// Test to get hotel room#
+        /// </summary>
+        [Fact]
+        public void GetHotelRoomNumber()
+        {
+            HotelRoom hotelroom = new HotelRoom();
+            hotelroom.RoomNumber = 212;
+            Assert.Equal(212, hotelroom.RoomNumber);
+        }
+
+        /// <summary>
+        /// Test to set hotel room#
+        /// </summary>
+        [Fact]
+        public void SetHotelRoomNumber()
+        {
+            HotelRoom hotelroom = new HotelRoom();
+            hotelroom.RoomNumber = 22;
+            Assert.Equal(22, hotelroom.RoomNumber);
+        }
     }
 }
