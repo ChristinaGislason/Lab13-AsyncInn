@@ -49,5 +49,51 @@ namespace XUnitTestProject1
             hotel.Address = "300 Derby Dr";
             Assert.Equal("300 Derby Dr", hotel.Address);
         }
+
+        /// <summary>
+        /// Test to get hotel phone
+        /// </summary>
+        [Fact]
+        public void GetHotelPhone()
+        {
+            Hotel hotel = new Hotel();
+            hotel.Phone = "914-300-2222";
+
+            Assert.Equal("914-300-2222", hotel.Phone);
+        }
+
+        /// <summary>
+        /// Test to set hotel phone
+        /// </summary>
+        [Fact]
+        public void SetHotelPhone()
+        {
+            Hotel hotel = new Hotel();
+            hotel.Phone = "222-300-2222";
+
+            Assert.Equal("222-300-2222", hotel.Phone);
+        }
+
+        /// <summary>
+        /// Test to get amenity name 
+        /// </summary>
+        [Fact]
+        public void GetAmenityName()
+        {
+            Amenities amenity = new Amenities();
+            amenity.Name = "Cable TV";
+            Assert.Equal("Cable TV", amenity.Name);
+        }
+
+        /// <summary>
+        /// Test to set amenity name 
+        /// </summary>
+        [Fact]
+        public void SetAmenityName()
+        {
+            Amenities amenity = new Amenities();
+            amenity.Name = "Jacuzzi";
+            Assert.Equal("Jacuzzi", amenity.Name);
+        }
     }
 }
