@@ -1,4 +1,6 @@
+using Lab13_AsyncInn.Data;
 using Lab13_AsyncInn.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using Xunit;
 
@@ -161,5 +163,28 @@ namespace XUnitTestProject1
             hotelroom.PetFriendly = false;
             Assert.False(hotelroom.PetFriendly);
         }
+
+        /// <summary>
+        /// Test to get room name
+        /// </summary>
+        [Fact]
+        public void GetRoomName()
+        {
+            Room room = new Room();
+            room.Name = "Ultra Super Deluxe";
+            Assert.Equal("Ultra Super Deluxe", room.Name);
+        }
+
+        /// <summary>
+        /// Test to set room name
+        /// </summary>
+        [Fact]
+        public void SetRoomName()
+        {
+            Room room = new Room();
+            room.Name = "SuperDuper Luxe";
+            Assert.Equal("SuperDuper Luxe", room.Name);
+        }
+
     }
 }
