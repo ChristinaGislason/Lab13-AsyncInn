@@ -144,23 +144,27 @@ namespace Lab13_AsyncInn.Controllers
                 return NotFound();
             }
 
+            
+       
             var hotelRoom = await _context.HotelRooms
                 .Include(h => h.Hotel).Include(h => h.Room)
-                .FirstOrDefaultAsync(m => m.RoomNumber == id);
+                .FirstOrDefaultAsync(m => m.RoomID == id);
+
             if (hotelRoom == null)
             {
                 return NotFound();
             }
-
+            //return View();
             return View(hotelRoom);
         }
 
         // POST: HotelRooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int HotelID, int RoomNumber)
         {
-            var hotelRoom = await _context.HotelRooms.FindAsync(id);
+            
+            var hotelRoom = await _context.HotelRooms.FindAsync(HotelID, RoomNumber);
             _context.HotelRooms.Remove(hotelRoom);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
