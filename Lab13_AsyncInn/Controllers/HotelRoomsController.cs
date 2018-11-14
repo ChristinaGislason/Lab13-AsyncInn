@@ -142,9 +142,7 @@ namespace Lab13_AsyncInn.Controllers
             if (hotelID == null || roomNumber == null)
             {
                 return NotFound();
-            }
-
-            
+            }           
        
             var hotelRoom = await _context.HotelRooms
                 .Include(h => h.Hotel).Include(h => h.Room)
