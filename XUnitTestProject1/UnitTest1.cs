@@ -3,6 +3,7 @@ using Lab13_AsyncInn.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Xunit;
+using System.Linq;
 
 namespace XUnitTestProject1
 {
