@@ -160,8 +160,7 @@ namespace Lab13_AsyncInn.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int HotelID, int RoomNumber)
-        {
-            
+        {          
             var hotelRoom = await _context.HotelRooms.FindAsync(HotelID, RoomNumber);
             _context.HotelRooms.Remove(hotelRoom);
             await _context.SaveChangesAsync();

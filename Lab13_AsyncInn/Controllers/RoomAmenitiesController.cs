@@ -139,6 +139,7 @@ namespace Lab13_AsyncInn.Controllers
                 .Include(r => r.Amenities)
                 .Include(r => r.Room)
                 .FirstOrDefaultAsync(m => m.RoomID == roomID && m.AmenitiesID == amenitiesID);
+
             if (roomAmenities == null)
             {
                 return NotFound();
