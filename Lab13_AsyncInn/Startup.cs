@@ -29,7 +29,7 @@ namespace Lab13_AsyncInn
             services.AddDbContext<AsyncInnDbContext>(options =>
             {
                 options.UseSqlServer
-                (Configuration.GetConnectionString("DefaultConnection"));
+                (Configuration.GetConnectionString("ProductionDB"));
             });
 
             // Configure interfaces and services
