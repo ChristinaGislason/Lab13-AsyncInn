@@ -33,16 +33,16 @@ namespace Lab13_AsyncInn.Controllers
         }
 
         // GET: HotelRooms/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? hotelID, int? roomNumber)
         {
-            if (id == null)
+            if (hotelID == null || roomNumber == null)
             {
                 return NotFound();
             }
 
             var hotelRoom = await _context.HotelRooms
                 .Include(h => h.Hotel)
-                .FirstOrDefaultAsync(m => m.HotelID == id);
+                .FirstOrDefaultAsync(m => m.HotelID == hotelID && m.RoomNumber == roomNumber);
             if (hotelRoom == null)
             {
                 return NotFound();
@@ -80,14 +80,14 @@ namespace Lab13_AsyncInn.Controllers
         }
 
         // GET: HotelRooms/Edit/5
-        public async Task<IActionResult> Edit(int? hotelID, int roomID)
+        public async Task<IActionResult> Edit(int? hotelID, int roomNumber)
         {
             if (hotelID == null)
             {
                 return NotFound();
             }
 
-            var hotelRoom = await _context.HotelRooms.FindAsync(hotelID, roomID);
+            var hotelRoom = await _context.HotelRooms.FindAsync(hotelID, roomNumber);
             if (hotelRoom == null)
             {
                 return NotFound();
@@ -103,9 +103,9 @@ namespace Lab13_AsyncInn.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
+        public async Task<IActionResult> Edit(int hotelID, int roomNumber, [Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
         {
-            if (id != hotelRoom.HotelID)
+            if (hotelID != hotelRoom.HotelID)
             {
                 return NotFound();
             }
@@ -137,9 +137,9 @@ namespace Lab13_AsyncInn.Controllers
         }
 
         // GET: HotelRooms/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? hotelID, int? roomNumber)
         {
-            if (id == null)
+            if (hotelID == null || roomNumber == null)
             {
                 return NotFound();
             }
@@ -148,7 +148,7 @@ namespace Lab13_AsyncInn.Controllers
        
             var hotelRoom = await _context.HotelRooms
                 .Include(h => h.Hotel).Include(h => h.Room)
-                .FirstOrDefaultAsync(m => m.RoomID == id);
+                .FirstOrDefaultAsync(m => m.HotelID == hotelID && m.RoomNumber == roomNumber);
 
             if (hotelRoom == null)
             {
