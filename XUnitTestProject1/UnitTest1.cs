@@ -187,9 +187,12 @@ namespace XUnitTestProject1
             room.Name = "SuperDuper Luxe";
             Assert.Equal("SuperDuper Luxe", room.Name);
         }
-
-       [Fact]
-       public async void CreateHotelDB()
+        
+        /// <summary>
+        /// Test to create and read hotel table
+        /// </summary>
+        [Fact]
+        public async void CreateandReadHotelDB()
         {
             // Create mini database environment for testing 
             DbContextOptions<AsyncInnDbContext> options = new DbContextOptionsBuilder<AsyncInnDbContext>().UseInMemoryDatabase("CreateHotel").Options;
@@ -210,7 +213,32 @@ namespace XUnitTestProject1
             }
 
         }
-   
+
+        /// <summary>
+        /// Test to create and read amenity table
+        /// </summary>
+        [Fact]
+        public async void CreateandReadAmenityDB()
+        {
+            // Create mini database environment for testing 
+            DbContextOptions<AsyncInnDbContext> options = new DbContextOptionsBuilder<AsyncInnDbContext>().UseInMemoryDatabase("CreateAmenity").Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                // Create new instance of amenity and assign name. Add it to the amenity database and save changes.
+                Amenities amenity = new Amenities();
+                amenity.Name = "scented candles";
+                context.Amenities.Add(amenity);
+                context.SaveChanges();
+
+                // Create variable; return the first amenity whose name matches the amenity name above OR the default
+                var testAmenity = await context.Amenities.FirstOrDefaultAsync(x => x.Name == amenity.Name);
+
+                // Test to see that the hotel name matches the recently added hotel in the hotel table
+                Assert.Equal("scented candles", testAmenity.Name);
+            }
+
+        }
 
     }
 }
