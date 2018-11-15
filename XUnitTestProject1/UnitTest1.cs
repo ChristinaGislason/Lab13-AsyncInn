@@ -264,5 +264,33 @@ namespace XUnitTestProject1
             }
         }
 
+        /// <summary>
+        /// Test to create and read from Room Amenities table
+        /// </summary>
+        [Fact]
+        public async void CreateAndReadRoomAmenitiesDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("CreateRoomAmenity")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                Amenities amenity = new Amenities();
+                amenity.Name = "Humidifier";
+
+                RoomAmenities roomAmenities = new RoomAmenities();
+                roomAmenities.Amenities = amenity;
+
+                context.RoomAmenities.Add(roomAmenities);
+                await context.SaveChangesAsync();
+
+                var testAmenities = await context.Amenities.FirstOrDefaultAsync(x => x.Name == amenity.Name);
+
+                Assert.Equal("Humidifier", amenity.Name);
+            }
+        }
+
     }
 }
