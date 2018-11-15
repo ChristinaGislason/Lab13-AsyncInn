@@ -5,6 +5,7 @@ using System;
 using Xunit;
 using System.Linq;
 
+
 namespace XUnitTestProject1
 {
     public class UnitTest1
@@ -186,6 +187,30 @@ namespace XUnitTestProject1
             room.Name = "SuperDuper Luxe";
             Assert.Equal("SuperDuper Luxe", room.Name);
         }
+
+       [Fact]
+       public async void CreateHotelDB()
+        {
+            // Create mini database environment for testing 
+            DbContextOptions<AsyncInnDbContext> options = new DbContextOptionsBuilder<AsyncInnDbContext>().UseInMemoryDatabase("CreateHotel").Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                // Create new instance of hotel and assign name to hotel. Add it to the hotel database and save changes.
+                Hotel hotel = new Hotel();
+                hotel.Name = "Async San Francisco";
+                context.Hotels.Add(hotel);
+                context.SaveChanges();
+          
+                // Create variable; return the first hotel whose name matches the hotel name above OR the default
+                var testHotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == hotel.Name);
+
+                // Test to see that the hotel name matches the recently added hotel in the hotel table
+                Assert.Equal("Async San Francisco", testHotel.Name);
+            }
+
+        }
+   
 
     }
 }
