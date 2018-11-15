@@ -292,5 +292,33 @@ namespace XUnitTestProject1
             }
         }
 
+        /// <summary>
+        /// Test to update Amenity table
+        /// </summary>
+        [Fact]
+        public async void UpdateAmenity()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("UpdateAmenity")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                Amenities amenity = new Amenities();
+                amenity.Name = "Ping pong table";
+                context.Amenities.Add(amenity);
+                await context.SaveChangesAsync();
+
+                amenity.Name = "Ping pong table";
+                context.Amenities.Update(amenity);
+                await context.SaveChangesAsync();
+
+                var amenities = await context.Amenities.FirstOrDefaultAsync(x => x.Name == amenity.Name);
+
+                Assert.Equal("Ping pong table", amenities.Name);
+            }
+        }
+
     }
 }
