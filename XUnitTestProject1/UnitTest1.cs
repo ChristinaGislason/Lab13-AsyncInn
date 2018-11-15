@@ -237,7 +237,31 @@ namespace XUnitTestProject1
                 // Test to see that the hotel name matches the recently added hotel in the hotel table
                 Assert.Equal("scented candles", testAmenity.Name);
             }
+        }
 
+        /// <summary>
+        /// Test to create and read hotelroom table
+        /// </summary>
+        [Fact]
+        public async void CreateandReadHotelRoomDB()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("CreateHotelRoom")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                HotelRoom hotelroom = new HotelRoom();
+                hotelroom.RoomNumber = 515;
+
+                context.HotelRooms.Add(hotelroom);
+                await context.SaveChangesAsync();
+
+                var testHotelRoom = await context.HotelRooms.FirstOrDefaultAsync(x => x.RoomNumber == hotelroom.RoomNumber);
+
+                Assert.Equal(515, hotelroom.RoomNumber);
+            }
         }
 
     }
