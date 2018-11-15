@@ -320,5 +320,33 @@ namespace XUnitTestProject1
             }
         }
 
+        /// <summary>
+        /// Test to update hotel table
+        /// </summary>
+        [Fact]
+        public async void UpdateHotel()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("UpdateHotel")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                Hotel hotel = new Hotel();
+                hotel.Name = "Async Malibu";
+                context.Hotels.Add(hotel);
+                await context.SaveChangesAsync();
+
+                hotel.Name = "Async Malibu";
+                context.Hotels.Update(hotel);
+                await context.SaveChangesAsync();
+
+                var testHotel = await context.Hotels.FirstOrDefaultAsync(x => x.Name == hotel.Name);
+
+                Assert.Equal("Async Malibu", hotel.Name);
+            }
+        }
+
     }
 }
