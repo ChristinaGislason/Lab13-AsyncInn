@@ -321,7 +321,7 @@ namespace XUnitTestProject1
         }
 
         /// <summary>
-        /// Test to update hotel table
+        /// Test to update Hotel table
         /// </summary>
         [Fact]
         public async void UpdateHotel()
@@ -347,6 +347,35 @@ namespace XUnitTestProject1
                 Assert.Equal("Async Malibu", hotel.Name);
             }
         }
+
+        /// <summary>
+        /// Test to update HotelRoom table
+        /// </summary>
+        [Fact]
+        public async void UpdateHotelRoom()
+        {
+            DbContextOptions<AsyncInnDbContext> options =
+            new DbContextOptionsBuilder<AsyncInnDbContext>()
+            .UseInMemoryDatabase("UpdateHotelRoom")
+            .Options;
+
+            using (AsyncInnDbContext context = new AsyncInnDbContext(options))
+            {
+                HotelRoom hotelroom = new HotelRoom();
+                hotelroom.RoomNumber = 1616;
+                context.HotelRooms.Add(hotelroom);
+                await context.SaveChangesAsync();
+
+                hotelroom.RoomNumber = 1616;
+                context.HotelRooms.Update(hotelroom);
+                await context.SaveChangesAsync();
+
+                var testHotelRoom = await context.HotelRooms.FirstOrDefaultAsync(x => x.Rate == hotelroom.RoomNumber);
+
+                Assert.Equal(1616, hotelroom.RoomNumber);
+            }
+        }
+
 
     }
 }
